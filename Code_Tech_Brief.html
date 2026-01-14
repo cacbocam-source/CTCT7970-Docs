@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGED 7970: Technical Brief Template</title>
+    <style>
+        :root {
+            --auburn-navy: #0C2340;
+            --auburn-orange: #E87722;
+            --bg-gray: #f4f4f9;
+            --text-dark: #333;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            border-bottom: 3px solid var(--auburn-navy);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-title h1 {
+            color: var(--auburn-navy);
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-title p {
+            margin: 5px 0 0 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        .metadata-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--auburn-navy);
+        }
+
+        input[type="text"], 
+        input[type="date"], 
+        textarea {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            background-color: var(--auburn-navy);
+            color: white;
+            padding: 8px 15px;
+            font-size: 18px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .sub-section {
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--auburn-orange);
+        }
+
+        .instruction {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .btn-print {
+            background-color: var(--auburn-orange);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-print:hover {
+            background-color: #c9651a;
+        }
+
+        @media print {
+            .btn-print {
+                display: none;
+            }
+            body {
+                padding: 0;
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-title">
+            <h1>Research Capstone: Technical Brief</h1>
+            <p>AGED 7970: Artificial Intelligence and Agentic Design</p>
+        </div>
+        <div style="color: var(--auburn-orange); font-weight: bold;">Spring 2026</div>
+    </header>
+
+    <div class="metadata-section">
+        <div class="input-group">
+            <label for="project-title">Project Title</label>
+            <input type="text" id="project-title" placeholder="e.g., Agentic Analysis of Extension Impact">
+        </div>
+        <div class="input-group">
+            <label for="student-name">Student Name</label>
+            <input type="text" id="student-name">
+        </div>
+        <div class="input-group">
+            <label for="date">Current Phase / Date</label>
+            <input type="text" id="date" placeholder="e.g., Phase 1 / Jan 20">
+        </div>
+        <div class="input-group">
+            <label for="faculty">Epistemic Governor</label>
+            <input type="text" id="faculty" value="Dr. Clemons" readonly>
+        </div>
+    </div>
+
+    <!-- SECTION I -->
+    <section>
+        <h2>I. Vision & Intent (Phase 1)</h2>
+        <div class="sub-section">
+            <label>1. The Wicked Problem</label>
+            <span class="instruction">Describe the "cognitively heavy" workflow in Agricultural Social Science you intend to solve. Why does this require synthetic intelligence?</span>
+            <textarea placeholder="Identify the specific friction point..."></textarea>
+        </div>
+        <div class="sub-section">
+            <label>2. Nexus Connection</label>
+            <span class="instruction">Relate this to Harari’s concept of information networks. Identify the "meaning boundaries" (keywords) of this problem.</span>
+            <textarea placeholder="How does information distributing power play a role here?"></textarea>
+        </div>
+    </section>
+
+    <!-- SECTION II -->
+    <section>
+        <h2>II. Cognitive Architecture (Phases 2 & 3)</h2>
+        <div class="sub-section">
+            <label>1. Knowledge Base (Grounding)</label>
+            <span class="instruction">List the specific data repositories or documents of "truth" you are using (e.g., Extension manuals, Alabama policy documents).</span>
+            <textarea placeholder="Include primary sources and datasets..."></textarea>
+        </div>
+        <div class="sub-section">
+            <label>2. System Logic & Persona</label>
+            <span class="instruction">Describe the "DNA" of your agent. What are its custom instructions? How does it treat conflicting data?</span>
+            <textarea placeholder="Persona, Constraints, and Reasoning Style..."></textarea>
+        </div>
+        <div class="sub-section">
+            <label>3. Tool Integration</label>
+            <span class="instruction">Does the agent use external tools? (e.g., Image Gen, Python Code Interpreter, Search).</span>
+            <input type="text" placeholder="Identify tools used...">
+        </div>
+    </section>
+
+    <!-- SECTION III -->
+    <section>
+        <h2>III. Epistemic Audit (Phase 4)</h2>
+        <div class="sub-section">
+            <label>1. The Fidelity Index (Φ)</label>
+            <span class="instruction">Identify instances of "Stochastic Drift" during development. How did you mitigate this?</span>
+            <textarea placeholder="Document the drift and the fix..."></textarea>
+        </div>
+        <div class="sub-section">
+            <label>2. Human-in-the-Loop Protocol</label>
+            <span class="instruction">Describe the manual verification process required before output is considered actionable.</span>
+            <textarea placeholder="Step-by-step verification logic..."></textarea>
+        </div>
+    </section>
+
+    <!-- SECTION IV -->
+    <section>
+        <h2>IV. Technical Appendix</h2>
+        <div class="sub-section">
+            <label>Links & Documentation</label>
+            <span class="instruction">Include links to Prompt History, Architecture Diagrams, or the Functional Agent.</span>
+            <textarea placeholder="URLs and attachment references..."></textarea>
+        </div>
+    </section>
+
+    <div style="text-align: right;">
+        <button class="btn-print" onclick="window.print()">Download / Print as PDF</button>
+    </div>
+
+    <footer style="margin-top: 40px; font-size: 11px; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 10px;">
+        &copy; 2026 Auburn University | Agricultural Education | Dr. Clemons | SIC Engine Protocol v1.0
+    </footer>
+</div>
+
+</body>
+</html>
