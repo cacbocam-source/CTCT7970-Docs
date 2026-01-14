@@ -73,9 +73,7 @@
             color: var(--auburn-navy);
         }
 
-        input[type="text"], 
-        input[type="date"], 
-        textarea {
+        input[type="text"], textarea {
             padding: 10px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
@@ -115,37 +113,33 @@
             display: block;
         }
 
-        .btn-print {
-            background-color: var(--auburn-orange);
+        /* Unified Button Style */
+        .btn-action {
             color: white;
             border: none;
-            padding: 12px 25px;
-            font-size: 16px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: bold;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 20px;
-            transition: background 0.3s;
+            transition: opacity 0.3s;
+            font-family: inherit;
         }
 
-        .btn-print:hover {
-            background-color: #c9651a;
-        }
+        .btn-save { background-color: #555; border-bottom: 3px solid var(--auburn-orange); }
+        .btn-print { background-color: var(--auburn-navy); }
+
+        .btn-action:hover { opacity: 0.8; }
 
         @media print {
-            .btn-print {
-                display: none;
-            }
-            body {
-                padding: 0;
-                background-color: white;
-            }
-            .container {
-                box-shadow: none;
-                max-width: 100%;
-                padding: 20px;
-            }
+            .btn-action { display: none !important; }
+            body { padding: 0; background-color: white; }
+            .container { box-shadow: none; max-width: 100%; padding: 20px; }
         }
     </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>   
 </head>
 <body>
 
@@ -158,93 +152,80 @@
         <div style="color: var(--auburn-orange); font-weight: bold;">Spring 2026</div>
     </header>
 
+    <div style="text-align: right; margin-bottom: 20px;">
+        <button onclick="saveDraft()" class="btn-action btn-save">Save Draft Locally</button>
+        <button onclick="window.print()" class="btn-action btn-print">Download as PDF</button>
+    </div>
+
+    <section id="methodology" style="padding: 20px; border-left: 5px solid var(--auburn-navy); background-color: #f9f9f9; border-radius: 4px;">
+        <h2 style="margin-top: 0;">III. Methodology: Stochastic Intent Calculus (SIC)</h2>
+        <p style="font-size: 14px;">
+            This research utilizes the <strong>Stochastic Intent Calculus (SIC)</strong> framework to manage semantic drift. 
+            The engine establishes mathematical friction to ensure output maintains high fidelity to the researcher's 
+            original intent, mitigating the "Saturation of Ease" often found in generalist chatbots.
+        </p>
+        <div style="background-color: #fff; padding: 15px; border: 1px solid var(--border-color); margin: 15px 0; border-radius: 4px;">
+            <h4 style="margin: 0 0 10px 0; color: var(--auburn-navy);">Fidelity & Validation Benchmarks</h4>
+            <p style="font-size: 13px; margin: 0;">
+                Validation is achieved through the <strong>Fidelity Index ($\Phi$)</strong>. For AGED 7970, 
+                a <strong>Veri-CAM threshold of $\tau=0.85$</strong> is required for pedagogical validity ($b=0.38$).
+            </p>
+        </div>
+        <p style="font-style: italic; color: #666; font-size: 12px; margin-top: 10px;">
+            <strong>IP Notice:</strong> Specific calculus derivations are proprietary and currently under USPTO patent review.
+        </p>
+    </section>
+
     <div class="metadata-section">
         <div class="input-group">
             <label for="project-title">Project Title</label>
-            <input type="text" id="project-title" placeholder="e.g., Agentic Analysis of Extension Impact">
+            <input type="text" id="project-title" class="save-field">
         </div>
         <div class="input-group">
             <label for="student-name">Student Name</label>
-            <input type="text" id="student-name">
-        </div>
-        <div class="input-group">
-            <label for="date">Current Phase / Date</label>
-            <input type="text" id="date" placeholder="e.g., Phase 1 / Jan 20">
-        </div>
-        <div class="input-group">
-            <label for="faculty">Epistemic Governor</label>
-            <input type="text" id="faculty" value="Dr. Clemons" readonly>
+            <input type="text" id="student-name" class="save-field">
         </div>
     </div>
 
-    <!-- SECTION I -->
     <section>
-        <h2>I. Vision & Intent (Phase 1)</h2>
+        <h2>I. Vision & Intent</h2>
         <div class="sub-section">
             <label>1. The Wicked Problem</label>
-            <span class="instruction">Describe the "cognitively heavy" workflow in Agricultural Social Science you intend to solve. Why does this require synthetic intelligence?</span>
-            <textarea placeholder="Identify the specific friction point..."></textarea>
-        </div>
-        <div class="sub-section">
-            <label>2. Nexus Connection</label>
-            <span class="instruction">Relate this to Harari’s concept of information networks. Identify the "meaning boundaries" (keywords) of this problem.</span>
-            <textarea placeholder="How does information distributing power play a role here?"></textarea>
+            <textarea id="wicked-problem" class="save-field" placeholder="Identify the specific friction point..."></textarea>
         </div>
     </section>
-
-    <!-- SECTION II -->
-    <section>
-        <h2>II. Cognitive Architecture (Phases 2 & 3)</h2>
-        <div class="sub-section">
-            <label>1. Knowledge Base (Grounding)</label>
-            <span class="instruction">List the specific data repositories or documents of "truth" you are using (e.g., Extension manuals, Alabama policy documents).</span>
-            <textarea placeholder="Include primary sources and datasets..."></textarea>
-        </div>
-        <div class="sub-section">
-            <label>2. System Logic & Persona</label>
-            <span class="instruction">Describe the "DNA" of your agent. What are its custom instructions? How does it treat conflicting data?</span>
-            <textarea placeholder="Persona, Constraints, and Reasoning Style..."></textarea>
-        </div>
-        <div class="sub-section">
-            <label>3. Tool Integration</label>
-            <span class="instruction">Does the agent use external tools? (e.g., Image Gen, Python Code Interpreter, Search).</span>
-            <input type="text" placeholder="Identify tools used...">
-        </div>
-    </section>
-
-    <!-- SECTION III -->
-    <section>
-        <h2>III. Epistemic Audit (Phase 4)</h2>
-        <div class="sub-section">
-            <label>1. The Fidelity Index (Φ)</label>
-            <span class="instruction">Identify instances of "Stochastic Drift" during development. How did you mitigate this?</span>
-            <textarea placeholder="Document the drift and the fix..."></textarea>
-        </div>
-        <div class="sub-section">
-            <label>2. Human-in-the-Loop Protocol</label>
-            <span class="instruction">Describe the manual verification process required before output is considered actionable.</span>
-            <textarea placeholder="Step-by-step verification logic..."></textarea>
-        </div>
-    </section>
-
-    <!-- SECTION IV -->
-    <section>
-        <h2>IV. Technical Appendix</h2>
-        <div class="sub-section">
-            <label>Links & Documentation</label>
-            <span class="instruction">Include links to Prompt History, Architecture Diagrams, or the Functional Agent.</span>
-            <textarea placeholder="URLs and attachment references..."></textarea>
-        </div>
-    </section>
-
-    <div style="text-align: right;">
-        <button class="btn-print" onclick="window.print()">Download / Print as PDF</button>
-    </div>
 
     <footer style="margin-top: 40px; font-size: 11px; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 10px;">
-        &copy; 2026 Auburn University | Agricultural Education | Dr. Clemons | SIC Engine Protocol v1.0
+        &copy; 2026 Auburn University | Dr. Clemons | SIC Engine Protocol v1.0
     </footer>
 </div>
+
+<script>
+    // Logic to save all inputs with the class 'save-field'
+    function saveDraft() {
+        const fields = document.querySelectorAll('.save-field');
+        const data = {};
+        fields.forEach(field => {
+            data[field.id] = field.value;
+        });
+        localStorage.setItem('aged7970_draft', JSON.stringify(data));
+        alert('Progress Saved Locally! Your work is stored in this browser even if you refresh.');
+    }
+
+    // Auto-load on page start
+    window.onload = function() {
+        const savedData = localStorage.getItem('aged7970_draft');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            for (const id in data) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.value = data[id];
+                }
+            }
+        }
+    };
+</script>
 
 </body>
 </html>
