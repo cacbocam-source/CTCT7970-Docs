@@ -9,44 +9,52 @@
     <style>
         :root { --navy: #0C2340; --orange: #E87722; }
         body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-top: 5px solid var(--navy); }
-        h2 { background: var(--navy); color: white; padding: 10px; font-size: 18px; margin-top: 30px; }
-        .btn { color: white; padding: 10px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; border: none; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-top: 5px solid var(--navy); border-radius: 8px; }
+        h2 { background: var(--navy); color: white; padding: 10px; font-size: 18px; margin-top: 30px; border-radius: 4px; }
+        .btn { color: white; padding: 10px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; border: none; font-size: 14px; }
         .btn-save { background: #555; border-bottom: 3px solid var(--orange); }
         .btn-print { background: var(--navy); margin-left: 10px; }
-        textarea, input { width: 100%; padding: 10px; border: 1px solid #ddd; box-sizing: border-box; }
-        @media print { .no-print { display: none !important; } }
+        textarea, input { width: 100%; padding: 12px; border: 1px solid #ddd; box-sizing: border-box; border-radius: 4px; font-size: 15px; }
+        label { display: block; font-weight: bold; margin: 15px 0 5px 0; color: var(--navy); }
+        @media print { .no-print { display: none !important; } .container { box-shadow: none; padding: 0; } }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="no-print" style="text-align: right; margin-bottom: 20px;">
         <button onclick="saveDraft()" class="btn btn-save">Save Draft Locally</button>
-        <button onclick="window.print()" class="btn btn-print">Download PDF</button>
+        <button onclick="window.print()" class="btn btn-print">Download as PDF</button>
     </div>
 
-    <h1>Technical Brief: AGED 7970</h1>
+    <header style="margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+        <h1 style="margin:0; color:var(--navy); font-size: 24px;">TECHNICAL BRIEF: AGED 7970</h1>
+        <p style="margin:5px 0; font-style:italic; color:#666;">AI & Agentic Design in Agriculture | Spring 2026</p>
+    </header>
 
     <h2>I. Vision & Intent</h2>
-    <label>1. Project Title</label>
-    <input type="text" id="t1" class="s">
-    <label>2. The Wicked Problem</label>
-    <textarea id="t2" class="s" placeholder="Identify the friction point..."></textarea>
+    <label>Project Title</label>
+    <input type="text" id="t1" class="s" placeholder="Enter Title Here">
+    <label>The Wicked Problem</label>
+    <textarea id="t2" class="s" placeholder="Identify the specific friction point..."></textarea>
 
     <h2>II. Cognitive Architecture</h2>
-    <label>3. System Logic (PCR)</label>
+    <label>System Logic (PCR)</label>
     <textarea id="t3" class="s" placeholder="Describe the Parallel Cognitive Architecture..."></textarea>
 
-    <div style="background: #f9f9f9; padding: 20px; border-left: 5px solid var(--navy); margin: 20px 0;">
-        <h3 style="margin-top:0;">III. Methodology: Stochastic Intent Calculus (SIC)</h3>
-        <p>Utilizing the <strong>Stochastic Intent Calculus (SIC)</strong> framework to manage semantic drift.</p>
-        <p><strong>Fidelity Index (\(\Phi\))</strong>: Required <strong>\(\tau = 0.85\)</strong>.</p>
-    </div>
+    <section style="background: #f9f9f9; padding: 25px; border-left: 5px solid var(--navy); margin: 30px 0; border-radius: 4px;">
+        <h3 style="margin-top:0; color:var(--navy);">III. Methodology: Stochastic Intent Calculus (SIC)</h3>
+        <p style="font-size: 14px;">Utilizing the <strong>Stochastic Intent Calculus (SIC)</strong> framework to manage semantic drift.</p>
+        <div style="background: white; padding: 15px; border: 1px solid #ddd; border-radius: 4px;">
+            <p style="margin:0;"><strong>Fidelity Index (\(\Phi\))</strong>: Required <strong>\(\tau = 0.85\)</strong>.</p>
+        </div>
+        <p style="font-size: 11px; font-style: italic; color: #888; margin-top:10px;">IP Notice: Proprietary derivations are omitted for USPTO patent review.</p>
+    </section>
 
-    <h2>IV. Epistemic Audit</h2>
-    <textarea id="t4" class="s" placeholder="Document the drift..."></textarea>
+    <h2>IV. Epistemic Audit (The Nexus)</h2>
+    <label>Documentation of Semantic Drift</label>
+    <textarea id="t4" class="s" placeholder="Document the drift between researcher intent and AI output..."></textarea>
 
-    <footer style="text-align: center; margin-top: 50px; font-size: 10px; color: #999;">
+    <footer style="text-align: center; margin-top: 50px; font-size: 11px; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
         &copy; 2026 Auburn University | Dr. Mike Clemons | SIC Engine Protocol v1.0
     </footer>
 </div>
@@ -55,11 +63,11 @@
     function saveDraft() {
         const data = {};
         document.querySelectorAll('.s').forEach(el => data[el.id] = el.value);
-        localStorage.setItem('aged7970_v1', JSON.stringify(data));
-        alert('Saved to your browser!');
+        localStorage.setItem('aged7970_final_v1', JSON.stringify(data));
+        alert('Progress Saved to your Browser Cache!');
     }
     window.onload = function() {
-        const saved = JSON.parse(localStorage.getItem('aged7970_v1'));
+        const saved = JSON.parse(localStorage.getItem('aged7970_final_v1'));
         if (saved) Object.keys(saved).forEach(id => { if(document.getElementById(id)) document.getElementById(id).value = saved[id]; });
     };
 </script>
