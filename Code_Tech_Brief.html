@@ -3,229 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGED 7970: Technical Brief Template</title>
+    <title>AGED 7970 Technical Brief</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        :root {
-            --auburn-navy: #0C2340;
-            --auburn-orange: #E87722;
-            --bg-gray: #f4f4f9;
-            --text-dark: #333;
-            --border-color: #ddd;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-gray);
-            color: var(--text-dark);
-            line-height: 1.6;
-            margin: 0;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            background: white;
-            padding: 50px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        header {
-            border-bottom: 3px solid var(--auburn-navy);
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .header-title h1 {
-            color: var(--auburn-navy);
-            margin: 0;
-            font-size: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .header-title p {
-            margin: 5px 0 0 0;
-            font-style: italic;
-            color: #666;
-        }
-
-        .metadata-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 5px;
-            color: var(--auburn-navy);
-        }
-
-        input[type="text"], textarea {
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 15px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            background-color: var(--auburn-navy);
-            color: white;
-            padding: 8px 15px;
-            font-size: 18px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
-        .sub-section {
-            margin-bottom: 20px;
-            padding-left: 10px;
-            border-left: 4px solid var(--auburn-orange);
-        }
-
-        .instruction {
-            font-size: 13px;
-            color: #777;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        /* Unified Button Style */
-        .btn-action {
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 14px;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: opacity 0.3s;
-            font-family: inherit;
-        }
-
-        .btn-save { background-color: #555; border-bottom: 3px solid var(--auburn-orange); }
-        .btn-print { background-color: var(--auburn-navy); }
-
-        .btn-action:hover { opacity: 0.8; }
-
-        @media print {
-            .btn-action { display: none !important; }
-            body { padding: 0; background-color: white; }
-            .container { box-shadow: none; max-width: 100%; padding: 20px; }
-        }
+        :root { --navy: #0C2340; --orange: #E87722; --gray: #f4f4f9; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--gray); margin: 0; padding: 20px; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header { border-bottom: 3px solid var(--navy); margin-bottom: 20px; padding-bottom: 10px; display: flex; justify-content: space-between; }
+        h2 { background-color: var(--navy); color: white; padding: 10px; border-radius: 4px; font-size: 18px; margin-top: 30px; }
+        .btn { color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn-save { background-color: #555; border-bottom: 3px solid var(--orange); }
+        .btn-print { background-color: var(--navy); margin-left: 10px; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; color: var(--navy); margin-bottom: 5px; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        textarea { min-height: 100px; }
+        @media print { .no-print { display: none !important; } .container { box-shadow: none; padding: 0; } }
     </style>
-    <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>   
 </head>
 <body>
 
 <div class="container">
     <header>
-        <div class="header-title">
-            <h1>Research Capstone: Technical Brief</h1>
-            <p>AGED 7970: Artificial Intelligence and Agentic Design</p>
-        </div>
-        <div style="color: var(--auburn-orange); font-weight: bold;">Spring 2026</div>
+        <div><h1 style="margin:0; color:var(--navy); font-size: 22px;">TECHNICAL BRIEF: AGED 7970</h1><p style="margin:5px 0 0 0; font-style:italic;">AI & Agentic Design in Agriculture</p></div>
+        <div style="color: var(--orange); font-weight: bold;">Spring 2026</div>
     </header>
 
-    <div style="text-align: right; margin-bottom: 20px;">
-        <button onclick="saveDraft()" class="btn-action btn-save">Save Draft Locally</button>
-        <button onclick="window.print()" class="btn-action btn-print">Download as PDF</button>
-    </div>
-
-    <section id="methodology" style="padding: 20px; border-left: 5px solid var(--auburn-navy); background-color: #f9f9f9; border-radius: 4px;">
-        <h2 style="margin-top: 0;">III. Methodology: Stochastic Intent Calculus (SIC)</h2>
-        <p style="font-size: 14px;">
-            This research utilizes the <strong>Stochastic Intent Calculus (SIC)</strong> framework to manage semantic drift. 
-            The engine establishes mathematical friction to ensure output maintains high fidelity to the researcher's 
-            original intent, mitigating the "Saturation of Ease" often found in generalist chatbots.
-        </p>
-        <div style="background-color: #fff; padding: 15px; border: 1px solid var(--border-color); margin: 15px 0; border-radius: 4px;">
-            <h4 style="margin: 0 0 10px 0; color: var(--auburn-navy);">Fidelity & Validation Benchmarks</h4>
-            <p style="font-size: 13px; margin: 0;">
-                Validation is achieved through the <strong>Fidelity Index ($\Phi$)</strong>. For AGED 7970, 
-                a <strong>Veri-CAM threshold of $\tau=0.85$</strong> is required for pedagogical validity ($b=0.38$).
-            </p>
-        </div>
-        <p style="font-style: italic; color: #666; font-size: 12px; margin-top: 10px;">
-            <strong>IP Notice:</strong> Specific calculus derivations are proprietary and currently under USPTO patent review.
-        </p>
-    </section>
-
-    <div class="metadata-section">
-        <div class="input-group">
-            <label for="project-title">Project Title</label>
-            <input type="text" id="project-title" class="save-field">
-        </div>
-        <div class="input-group">
-            <label for="student-name">Student Name</label>
-            <input type="text" id="student-name" class="save-field">
-        </div>
+    <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+        <button onclick="saveDraft()" class="btn btn-save">Save Draft Locally</button>
+        <button onclick="window.print()" class="btn btn-print">Download PDF</button>
     </div>
 
     <section>
         <h2>I. Vision & Intent</h2>
-        <div class="sub-section">
-            <label>1. The Wicked Problem</label>
-            <textarea id="wicked-problem" class="save-field" placeholder="Identify the specific friction point..."></textarea>
+        <div class="input-group">
+            <label>1. Project Title</label>
+            <input type="text" id="p-title" class="save-field">
+        </div>
+        <div class="input-group">
+            <label>2. The Wicked Problem</label>
+            <textarea id="wicked" class="save-field" placeholder="Identify the specific friction point..."></textarea>
         </div>
     </section>
 
-    <footer style="margin-top: 40px; font-size: 11px; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 10px;">
-        &copy; 2026 Auburn University | Dr. Clemons | SIC Engine Protocol v1.0
+    <section>
+        <h2>II. Cognitive Architecture</h2>
+        <div class="input-group">
+            <label>3. System Logic & PCR Framework</label>
+            <textarea id="pcr-logic" class="save-field" placeholder="Describe the Parallel Cognitive Architecture..."></textarea>
+        </div>
+    </section>
+
+    <section id="methodology" style="padding: 20px; border: 1px solid var(--navy); background-color: #f9f9f9; border-radius: 4px;">
+        <h2 style="margin-top:0;">III. Methodology: Stochastic Intent Calculus (SIC)</h2>
+        <p>This research utilizes the <strong>Stochastic Intent Calculus (SIC)</strong> framework to manage semantic drift.</p>
+        <div style="background: white; padding: 15px; border: 1px solid #ddd;">
+            <p><strong>Fidelity Index (\(\Phi\))</strong>: Target validation threshold is <strong>\(\tau = 0.85\)</strong>.</p>
+        </div>
+        <p style="font-size: 11px; font-style: italic; color: #666; margin-top: 10px;">
+            IP Notice: Proprietary derivations are omitted for USPTO patent review.
+        </p>
+    </section>
+
+    <section>
+        <h2>IV. Epistemic Audit (The Nexus)</h2>
+        <div class="input-group">
+            <label>4. Documentation of Semantic Drift</label>
+            <textarea id="drift-log" class="save-field" placeholder="Document the drift between researcher intent and AI output..."></textarea>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; font-size: 11px; color: #999; border-top: 1px solid #eee; padding-top: 20px;">
+        &copy; 2026 Auburn University | Agricultural Education | Dr. Mike Clemons | SIC Engine Protocol v1.0
     </footer>
 </div>
 
 <script>
-    // Logic to save all inputs with the class 'save-field'
     function saveDraft() {
         const fields = document.querySelectorAll('.save-field');
         const data = {};
-        fields.forEach(field => {
-            data[field.id] = field.value;
-        });
+        fields.forEach(f => { data[f.id] = f.value; });
         localStorage.setItem('aged7970_draft', JSON.stringify(data));
-        alert('Progress Saved Locally! Your work is stored in this browser even if you refresh.');
+        alert('Progress Saved to your Browser Cache!');
     }
-
-    // Auto-load on page start
     window.onload = function() {
-        const savedData = localStorage.getItem('aged7970_draft');
-        if (savedData) {
-            const data = JSON.parse(savedData);
-            for (const id in data) {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.value = data[id];
-                }
-            }
+        const saved = JSON.parse(localStorage.getItem('aged7970_draft'));
+        if (saved) {
+            Object.keys(saved).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = saved[id];
+            });
         }
     };
 </script>
-
 </body>
 </html>
